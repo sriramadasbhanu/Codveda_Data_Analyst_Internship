@@ -1,0 +1,10 @@
+import pandas as pd
+data=pd.read_csv("2) Stock Prices Data Set.csv")
+data.info()
+print(data["open"].mean())
+data["open"]=data["open"].fillna(data["open"].mean())
+data["high"]=data["high"].fillna(data["high"].mean())
+data["low"]=data["low"].fillna(data["low"].mean())
+print(data.isnull().sum())
+print(data.duplicated().sum())
+data.to_csv("stock_prices_cleaned.csv",index=False)
